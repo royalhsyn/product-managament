@@ -1,0 +1,21 @@
+server:
+  port: 8090
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: admin
+    password: admin
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog-master.yaml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+    show-sql: true
+

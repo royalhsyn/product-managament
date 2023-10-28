@@ -1,0 +1,33 @@
+version: '3'
+services:
+  app:
+    image: productmanagament-app
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - product-db
+    environment:
+      DB_CONNECTION_IP: product-db
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8580:8080
+
+  product-db:
+    image: library/postgres:latest
+    volumes:
+      - db_data:/var/lib/postgres
+    ports:
+      - "5432:5432"
+    container_name: managament-db-postgres
+    environment:
+      - POSTGRES_DB= managament-db
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+
+volumes:
+  db_data:
+  elasticsearch_data:

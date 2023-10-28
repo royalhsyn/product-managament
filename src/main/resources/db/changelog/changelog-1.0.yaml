@@ -1,0 +1,83 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-category
+      author: Royal
+      changes:
+        - createTable:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+
+
+
+  - changeSet:
+      id: create-table-supplier
+      author: Royal
+      changes:
+        - createTable:
+            tableName: supplier
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+
+              - column:
+                  name: address
+                  type: VARCHAR(50)
+
+  - changeSet:
+      id: create-table-product
+      author: Royal
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+
+              - column:
+                  name: price
+                  type: Double precision
+
+              - column:
+                  name: categoryId
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: category_product_id_fk
+                    references: category(id)
+
+              - column:
+                  name: supplierId
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: supplier_product_id_fk
+                    references: supplier(id)
