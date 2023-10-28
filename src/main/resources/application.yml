@@ -1,12 +1,12 @@
 server:
-  port: 8090
+  port: 8081
   error:
     whitelabel:
       enabled: false
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://product-db:5432/postgres
     driver-class-name: org.postgresql.Driver
     username: admin
     password: admin
