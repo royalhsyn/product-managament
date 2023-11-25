@@ -1,6 +1,5 @@
 package com.example.productmanagement.service;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.productmanagement.dto.SupplierDto;
 import com.example.productmanagement.mapstruct.SupplierMapper;
@@ -9,6 +8,7 @@ import com.example.productmanagement.repository.SupplierRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
 
 public class SupplierServiceTest {
     private SupplierService supplierService;
